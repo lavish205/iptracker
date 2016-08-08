@@ -8,9 +8,9 @@ from django.template import RequestContext
 def get_geolocation(request, ip=None):
     """
     get ip and return ip details rendered on map
-    :param request:
-    :param ip:
-    :return:
+    :param request: request object
+    :param ip: ip for tracking
+    :return: ip information rendered map
     """
     template = 'index.html'
     HOST = 'http://ipinfo.io/'
@@ -21,7 +21,7 @@ def get_geolocation(request, ip=None):
     response = requests.get(url)
 
     data = response.json()
-    if data:
+    if data.get('loc'):
         lat, lng = data.get('loc').split(',')
     else:
         lat, lng = 12.928562, 77.6135046
