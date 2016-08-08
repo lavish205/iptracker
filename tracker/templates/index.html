@@ -31,7 +31,7 @@
              lng: {{ lng }}
         }
         infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found. {{ network }}');
+        infoWindow.setContent('Location found. {{ city }}, {{ region }} {{ network }}');
         map.setCenter(pos);
       }
     </script>

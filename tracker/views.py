@@ -20,7 +20,9 @@ def get_geolocation(request, ip=None):
     ctx = {
         'lat': lat,
         'lng': lng,
-        'network': data.get('org')
+        'network': data.get('org'),
+        'city': data.get('city'),
+        'region': data.get('region')
     }
     ctx = RequestContext(request, ctx)
     return render_to_response(template, ctx)
